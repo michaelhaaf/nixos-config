@@ -2,7 +2,6 @@
 
 with pkgs; [
   # General packages for development and system management
-  act
   alacritty
   aspell
   aspellDicts.en
@@ -12,33 +11,33 @@ with pkgs; [
   coreutils
   difftastic
   du-dust
+  fzf
   gcc
-  git-filter-repo
-  killall
   neofetch
   openssh
   pandoc
   sqlite
   wget
+  zellij
   zip
 
   # Encryption and security tools
-  _1password
   age
   age-plugin-yubikey
   gnupg
   libfido2
+  pass
+
+  # Utilities
+  stow
+  gnumake
+  parallel
+  chezmoi
 
   # Cloud-related tools and SDKs
-  # docker
-  # docker-compose
-  # awscli2 - marked broken Mar 22
-  flyctl
-  google-cloud-sdk
   go
   gopls
   ngrok
-  ssm-session-manager-plugin
   terraform
   terraform-ls
   tflint
@@ -57,17 +56,10 @@ with pkgs; [
   noto-fonts
   noto-fonts-emoji
   pngquant
-
-  # PHP
-  php82
-  php82Packages.composer
-  php82Packages.php-cs-fixer
-  php82Extensions.xdebug
-  php82Packages.deployer
-  phpunit
+  fira
+  fira-code
 
   # Node.js development tools
-  fzf
   nodePackages.live-server
   nodePackages.nodemon
   nodePackages.prettier
@@ -76,6 +68,8 @@ with pkgs; [
 
   # Source code management, Git, GitHub tools
   gh
+  act
+  codeberg-cli
 
   # Text and terminal utilities
   htop

@@ -27,13 +27,7 @@ _:
   "steam"
   "vlc"
 
-  # Productivity Tools
-  "raycast"
-  "asana"
-
   # Browsers
-  "google-chrome"
+  "firefox"
 
-  # AI
-  "diffusionbee"
 ]
