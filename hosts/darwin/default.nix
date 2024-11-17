@@ -1,10 +1,9 @@
 { agenix, config, pkgs, ... }:
 
-let user = "dustin"; in
+let user = "michael"; in
 {
 
   imports = [
-    ../../modules/darwin/secrets.nix
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
     agenix.darwinModules.default

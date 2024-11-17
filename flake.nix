@@ -1,5 +1,5 @@
 {
-  description = "Starter Configuration with secrets for MacOS and NixOS";
+  description = "Configuration for MacOS and Linux Containers";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     agenix.url = "github:ryantm/agenix";
@@ -23,12 +23,8 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     }; 
-    secrets = {
-      url = "git+ssh://git@github.com/michaelhaaf/nix-secrets.git";
-      flake = false;
-    };
   };
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, agenix, secrets } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, nixpkgs, agenix } @inputs:
     let
       user = "michael";
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
@@ -58,14 +54,12 @@
         "create-keys" = mkApp "create-keys" system;
         "check-keys" = mkApp "check-keys" system;
         "install" = mkApp "install" system;
-        "install-with-secrets" = mkApp "install-with-secrets" system;
       };
       mkDarwinApps = system: {
         "apply" = mkApp "apply" system;
         "build" = mkApp "build" system;
         "build-switch" = mkApp "build-switch" system;
         "copy-keys" = mkApp "copy-keys" system;
-        "create-keys" = mkApp "create-keys" system;
         "check-keys" = mkApp "check-keys" system;
         "rollback" = mkApp "rollback" system;
       };
@@ -107,18 +101,18 @@
         };
       };
 
-      nixosConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
+      linuxConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = inputs;
         modules = [
-          home-manager.nixosModules.home-manager {
+          home-manager.linuxModules.home-manager {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.${user} = import ./modules/nixos/home-manager.nix;
+              users.${user} = import ./modules/linux/home-manager.nix;
             };
           }
-          ./hosts/nixos
+          ./hosts/linux
         ];
      });
   };

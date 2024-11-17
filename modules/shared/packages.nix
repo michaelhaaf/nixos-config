@@ -12,7 +12,6 @@ with pkgs; [
   difftastic
   du-dust
   fzf
-  gcc
   neofetch
   openssh
   pandoc
@@ -34,13 +33,26 @@ with pkgs; [
   parallel
   chezmoi
 
-  # Cloud-related tools and SDKs
+  # SDKs
+  gcc
+  zig
   go
   gopls
   ngrok
   terraform
   terraform-ls
   tflint
+  cargo
+  rustc
+  swi-prolog
+  ghc
+  cabal-install
+
+  # quarto
+  quarto
+  R
+  perl
+  ruby
 
   # Media-related packages
   emacs-all-the-icons-fonts
@@ -65,6 +77,10 @@ with pkgs; [
   nodePackages.prettier
   nodePackages.npm
   nodejs
+  gjs
+  bun
+  typescript
+  eslint
 
   # Source code management, Git, GitHub tools
   gh
@@ -78,6 +94,7 @@ with pkgs; [
   jetbrains-mono
   jetbrains.phpstorm
   jq
+  yq
   ripgrep
   slack
   tree
