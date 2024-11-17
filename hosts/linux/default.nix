@@ -3,7 +3,6 @@
 let user = "michael"; in
 {
   imports = [
-    ../../modules/linux/secrets.nix
     ../../modules/shared
     agenix.nixosModules.default
   ];

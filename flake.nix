@@ -93,15 +93,7 @@
         }
       );
 
-
-      homeConfigurations.${user} = 
-        home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${arch};
-          modules = [ ./config.nix ];
-        };
-      };
-
-      linuxConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.nixosSystem {
+      linuxConfigurations = nixpkgs.lib.genAttrs linuxSystems (system: nixpkgs.lib.linuxSystem {
         inherit system;
         specialArgs = inputs;
         modules = [
