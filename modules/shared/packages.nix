@@ -107,4 +107,9 @@ with pkgs; [
   black
   python3
   virtualenv
+
+  # PDF
+  zathura
+  pdftk
+  ghostscript
 ]

@@ -43,9 +43,4 @@ shared-packages ++ [
   i3lock-fancy-rapid
   libnotify
 
-  # PDF
-  zathura
-  pdftk
-  ghostscript
-
 ]

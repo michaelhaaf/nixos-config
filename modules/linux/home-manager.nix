@@ -12,8 +12,10 @@ in
     username = "${user}";
     homeDirectory = "/home/${user}";
     packages = pkgs.callPackage ./packages.nix {};
-    file = shared-files // import ./files.nix { inherit user pkgs; };
     stateVersion = "24.05";
+    # activation.chezmoi = lib.hm.dag.entryAfter [ "installPackages" ] ''
+    #   $DRY_RUN_CMD ${pkgs.chezmoi}/bin/chezmoi init --apply <your dotfiles>
+    # '';
   };
 
   programs = shared-programs // { 
